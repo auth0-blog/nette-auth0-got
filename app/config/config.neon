@@ -13,13 +13,13 @@ session:
 
 services:
 	router: App\RouterFactory::createRouter
-	auth0Authenticator: App\Model\Auth0Authenticator
 	auth0: Auth0\SDK\Auth0([
-    'domain' : 'unicoder.auth0.com',
-    'client_id' : '5UgUjkEXwUC89gEF2zWYji5Cs8giDWnH',
-    'client_secret' : 'L20UZy5EJcrQB99GjOc2YE-ZlzglF61WS1HO7QTM-eFdZ6LFAlfEiM35zzhnlDA1',
-    'redirect_uri' : 'http://localhost:8000/callback',
-    'persist_user' : false,
-    'store': false
-    'debug' : true
-  ])
+		'domain' : 'acmeprg.eu.auth0.com',
+		'client_id' : 'URckrNU3htNUQKLB1U6C4b7XWbwCKJun',
+		'client_secret' : 'Bv2ExczUU0ghCV21DUAbistHPWHVz5s03tnxThuL4KmtCUQfOicSNYeKzkb8vKVO',
+		'redirect_uri' : 'http://localhost:8000/callback',
+		'persist_user' : false,
+		'store': false
+		'debug' : true
+	])
+	auth0Authenticator: App\Model\Auth0Authenticator

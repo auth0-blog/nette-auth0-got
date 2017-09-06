@@ -4,22 +4,34 @@
     <div class="container">
       <div class="row">
           <div class="col-md-10 col-md-offset-1">
-              <div class="panel panel-success">
-                  <div class="panel-heading">List of Game of Thrones Characters</div>
-                    <table class="table">
-                        <tr>
-                            <th>Character</th>
-                            <th>Real Name</th>
-                        </tr>
-                        {foreach $characters as $key => $value}
-                          <tr>
-                            <td>{$key}</td><td>{$value}</td>
-                          </tr>
-                        {/foreach}
-                    </table>
-              </div>
+            {if $user->isLoggedIn()}
+            <div class="panel panel-info">
+              <div class="panel-heading">You are now logged in, {$user->getIdentity()->nickname} </div>
+            </div>
+            {/if}
+            <div class="panel panel-success">
+              <div class="panel-heading">List of Game of Thrones Characters</div>
+              {if $user->isLoggedIn()}
+                <table class="table">
+                    <tr>
+                        <th>Character</th>
+                        <th>Real Name</th>
+                    </tr>
+                    {foreach $characters as $key => $value}
+                      <tr>
+                        <td>{$key}</td><td>{$value}</td>
+                      </tr>
+                    {/foreach}
+                </table>
+              {/if}
+            </div>
+            {if !$user->isLoggedIn()}
+              <a href="{link Authentication:login}" class="btn btn-info"> You need to login to see the list 😜😜 >></a>
+            {/if}
+            {if $user->isLoggedIn()}
+              <a href="{link Authentication:logout}" class="btn btn-info"> Logout >></a>
+            {/if}
           </div>
-          <p><a href="{link Authentication:login}">Login</a> <a href="{link Authentication:logout}">Logout</a></p>
       </div>
     </div>
 {/block}
